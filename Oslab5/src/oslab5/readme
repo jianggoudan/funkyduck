@@ -1,0 +1,51 @@
+1 zhongzhi jiang 18011803
+2 The main function is located in Buffer.java.
+3.4.1
+    
+run:
+producer ID:19  produced item: 311the buffer now contains 1items 
+producer ID:19  produced item: 176the buffer now contains 2items 
+producer ID:19  produced item: 577the buffer now contains 3items 
+producer ID:19  produced item: 743the buffer now contains 4items 
+producer ID:19  produced item: 737the buffer now contains 5items 
+buffer is full 19
+consumer id: 20 consumer item: 311the buffer now contains 4items 
+consumer id: 20 consumer item: 176the buffer now contains 3items 
+consumer id: 20 consumer item: 577the buffer now contains 2items 
+consumer id: 20 consumer item: 743the buffer now contains 1items 
+consumer id: 20 consumer item: 737the buffer now contains 0items 
+no item here 20
+producer ID:19  produced item: 750the buffer now contains 1items 
+producer ID:19  produced item: 951the buffer now contains 2items 
+producer ID:19  produced item: 713the buffer now contains 3items 
+producer ID:19  produced item: 715the buffer now contains 4items 
+producer ID:19  produced item: 896the buffer now contains 5items 
+buffer is full 19
+consumer id: 20 consumer item: 750the buffer now contains 4items 
+consumer id: 20 consumer item: 951the buffer now contains 3items 
+BUILD SUCCESSFUL (total time: 10 seconds)
+The producer generates items and put into buffer until it is full, then the consumer begins to consume the items from buffer.So it has been full.
+Usually 0 or 5 items are in the buffer. The process is 0 to 5, 5 to 0, 0 to 5......
+
+4.3.2
+producer ID:19  produced item: 6the buffer now contains 1items 
+buffer is full 19
+consumer id: 28 consumer item: 6the buffer now contains 0items 
+no item here 28
+no item here 27
+no item here 26
+no item here 25
+no item here 24
+producer ID:23  produced item: 178the buffer now contains 1items 
+buffer is full 23
+buffer is full 22
+buffer is full 21
+buffer is full 20
+consumer id: 24 consumer item: 178the buffer now contains 0items 
+no item here 24
+no item here 25
+no item here 26
+no item here 27
+no item here 28
+producer ID:19  produced item: 328the buffer now contains 1items 
+BUILD SUCCESSFUL (total time: 10 seconds)
