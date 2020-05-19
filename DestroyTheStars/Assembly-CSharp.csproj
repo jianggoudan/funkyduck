@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\GameCtrl.cs" />
      <Compile Include="Assets\Scripts\PlayerCtrl.cs" />
      <Compile Include="Assets\Scripts\PropCtrl.cs" />
+     <Compile Include="Assets\Scripts\movefloorCtrl.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/unity/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
