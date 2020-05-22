@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
+    public void nextLevelandExit()
+    {
+        SceneManager.LoadScene("Menu");
+    }
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene("Level0");
+    }
+    public void Demo()
+    {
+        SceneManager.LoadScene("Level1");
     }
 
     public void QuitGame()

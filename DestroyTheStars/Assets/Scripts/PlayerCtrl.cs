@@ -7,6 +7,7 @@ public class PlayerCtrl : MonoBehaviour
     public Animator animator;
     public Rigidbody2D playerRB;
     public Transform bottom;
+    
 
     public float moveSpeed = 1;
     public float jumpForce = 5;
@@ -16,14 +17,19 @@ public class PlayerCtrl : MonoBehaviour
     private bool isGround, isJump;
     private bool jumpPressed;
     private int jumpCount;
-    public int healthPoint=1;
+    public int healthPoint = 1;
 
+
+     public float currentTime = 5f;
+    
     void Start()
     {
         if (animator == null)
-            animator = gameObject.GetComponent<Animator>();
+          {  animator = gameObject.GetComponent<Animator>();}
         if (playerRB == null)
-            playerRB = gameObject.GetComponent<Rigidbody2D>();
+           { playerRB = gameObject.GetComponent<Rigidbody2D>();}
+
+            
     }
     private void Update()
     {
@@ -31,6 +37,23 @@ public class PlayerCtrl : MonoBehaviour
         {
             jumpPressed = true;
         }
+         currentTime -= 1 * Time.deltaTime;
+        
+        if(currentTime <= 0)
+        {
+            currentTime = 0;
+        }
+         if(currentTime==0)
+         {
+            playerRB.velocity = Vector2.zero;
+            playerRB.isKinematic = true;
+            animator.SetBool("Die", true);
+            GameCtrl.inst.OnFailed();
+            this.healthPoint = 0;
+            UImanagere.instance.UpdateHealthBar();
+         }
+        
+      
     }
     void FixedUpdate()
     {
@@ -95,12 +118,14 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if (collision.name.Contains("Trap"))
         {
+            
             playerRB.velocity = Vector2.zero;
             playerRB.isKinematic = true;
-            animator.SetBool("Die",true);
+            animator.SetBool("Die", true);
             GameCtrl.inst.OnFailed();
             this.healthPoint = 0;
             UImanagere.instance.UpdateHealthBar();
         }
+        
     }
 }
