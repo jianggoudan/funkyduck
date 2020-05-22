@@ -7,7 +7,7 @@ public class PlayerCtrl : MonoBehaviour
     public Animator animator;
     public Rigidbody2D playerRB;
     public Transform bottom;
-    
+    public static PlayerCtrl pc;
 
     public float moveSpeed = 1;
     public float jumpForce = 5;
@@ -24,6 +24,7 @@ public class PlayerCtrl : MonoBehaviour
     
     void Start()
     {
+        pc = this;
         if (animator == null)
           {  animator = gameObject.GetComponent<Animator>();}
         if (playerRB == null)
@@ -45,11 +46,15 @@ public class PlayerCtrl : MonoBehaviour
         }
          if(currentTime==0)
          {
+            
+            this.healthPoint = 5;
+            Debug.Log(healthPoint);
             playerRB.velocity = Vector2.zero;
             playerRB.isKinematic = true;
             animator.SetBool("Die", true);
+            GameCtrl.inst.heal();
             GameCtrl.inst.OnFailed();
-            this.healthPoint = 0;
+            
             UImanagere.instance.UpdateHealthBar();
          }
         
@@ -125,6 +130,15 @@ public class PlayerCtrl : MonoBehaviour
             GameCtrl.inst.OnFailed();
             this.healthPoint = 0;
             UImanagere.instance.UpdateHealthBar();
+        }
+        else if (collision.name.Contains("addHealth"))
+        {
+            
+            Destroy(collision.gameObject);
+            this.healthPoint++;
+            GameCtrl.inst.heal();
+           
+            Debug.Log(this.healthPoint);
         }
         
     }

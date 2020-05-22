@@ -14,6 +14,6 @@ public class UImanagere : MonoBehaviour
     }
    public void UpdateHealthBar()
     {
-        healthBar.fillAmount = 0.0f;
+       // healthBar.fillAmount = 0.0f;
     }
 }

@@ -9,10 +9,15 @@ public class GameCtrl : MonoBehaviour
 
     public GameObject endUI;
     public Text scoreLabel;
-    public string nextScene;
-
-    private PropCtrl[] propCtrls;
+    
     private int score = 0;
+    public string nextScene;
+    private PropCtrl[] propCtrls;
+    public Text healthLabel;
+    
+    
+    
+
     private void Awake()
     {
         inst = this;
@@ -30,6 +35,13 @@ public class GameCtrl : MonoBehaviour
         if (score < propCtrls.Length) return;
 
         LoadScene(nextScene);
+    }
+ 
+    public void heal()
+    {
+
+        healthLabel.text = PlayerCtrl.pc.healthPoint.ToString();
+        Debug.Log("jiaxie");
     }
     public void OnFailed()
     {
