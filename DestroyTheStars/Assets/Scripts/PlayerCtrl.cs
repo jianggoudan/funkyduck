@@ -16,6 +16,7 @@ public class PlayerCtrl : MonoBehaviour
     private bool isGround, isJump;
     private bool jumpPressed;
     private int jumpCount;
+    public int healthPoint=1;
 
     void Start()
     {
@@ -98,6 +99,8 @@ public class PlayerCtrl : MonoBehaviour
             playerRB.isKinematic = true;
             animator.SetBool("Die",true);
             GameCtrl.inst.OnFailed();
+            this.healthPoint = 0;
+            UImanagere.instance.UpdateHealthBar();
         }
     }
 }
