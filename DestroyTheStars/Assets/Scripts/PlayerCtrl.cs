@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -18,9 +19,10 @@ public class PlayerCtrl : MonoBehaviour
     private bool jumpPressed;
     private int jumpCount;
     public int healthPoint = 1;
+    public Vector3 startPosition;
 
 
-     public float currentTime = 5f;
+    //  public float currentTime = 5f;
     
     void Start()
     {
@@ -38,27 +40,34 @@ public class PlayerCtrl : MonoBehaviour
         {
             jumpPressed = true;
         }
-         currentTime -= 1 * Time.deltaTime;
+        //  currentTime -= 1 * Time.deltaTime;
         
-        if(currentTime <= 0)
+        // if(currentTime <= 0)
+        // {
+        //     currentTime = 0;
+        // }
+        
+        //  if(currentTime==0)
+        //  {
+            
+        //     this.healthPoint -= 1;
+        //     Debug.Log(healthPoint);
+        //     playerRB.velocity = Vector2.zero;
+        //     playerRB.isKinematic = true;
+        //     animator.SetBool("Die", true);
+        //     GameCtrl.inst.heal();
+        //     UImanagere.instance.UpdateHealthBar();
+        //  }
+         if(healthPoint <= 0)
         {
-            currentTime = 0;
+            healthPoint = 0;
         }
-         if(currentTime==0)
-         {
-            
-            this.healthPoint = 5;
-            Debug.Log(healthPoint);
-            playerRB.velocity = Vector2.zero;
-            playerRB.isKinematic = true;
-            animator.SetBool("Die", true);
-            GameCtrl.inst.heal();
-            GameCtrl.inst.OnFailed();
-            
-            UImanagere.instance.UpdateHealthBar();
-         }
         
-      
+        
+    }
+     private void Awake()
+    {
+        startPosition=transform.position;
     }
     void FixedUpdate()
     {
@@ -112,8 +121,37 @@ public class PlayerCtrl : MonoBehaviour
         animator.SetFloat("Move", playerRB.velocity.x);
         animator.SetBool("Jump", !isGround);
     }
+     
+        
+
+        
+    
+    // public void loseHealthPoint()
+    // {
+    //     this.healthPoint -= 1;
+    //     JudgeGame();
+    //     GameCtrl.inst.heal();
+    //     UImanagere.instance.UpdateHealthBar();
+    // }
+    // public  void  JudgeGame()
+    // {
+        
+        
+    //     if (this.healthPoint >0) 
+    //     {transform.position=startPosition;}
+        
+    //     else if(this.healthPoint==0)
+    //     {
+    //         GameCtrl.inst.OnFailed();
+    //         playerRB.velocity = Vector2.zero;
+    //         playerRB.isKinematic = true;
+    //         animator.SetBool("Die", true);
+    //     }
+    // }    
 
 
+
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name.Contains("Star"))
@@ -124,22 +162,65 @@ public class PlayerCtrl : MonoBehaviour
         else if (collision.name.Contains("Trap"))
         {
             
-            playerRB.velocity = Vector2.zero;
-            playerRB.isKinematic = true;
-            animator.SetBool("Die", true);
-            GameCtrl.inst.OnFailed();
-            this.healthPoint = 0;
-            UImanagere.instance.UpdateHealthBar();
+            //playerRB.velocity = Vector2.zero;
+            //playerRB.isKinematic = true;
+            //animator.SetBool("Die", true);
+            //transform.position=startPosition;
+            
+            
+            //SceneManager.LoadScene("Level0");
+            
+            loseHealthPoint();
+            // this.healthPoint--;
+            // JudgeGame();
+            // GameCtrl.inst.heal();
+            // UImanagere.instance.UpdateHealthBar();
         }
         else if (collision.name.Contains("addHealth"))
         {
             
             Destroy(collision.gameObject);
-            this.healthPoint++;
+            this.healthPoint  += 1;
             GameCtrl.inst.heal();
            
             Debug.Log(this.healthPoint);
         }
         
     }
+    public void healthPointZero()
+    {
+        this.healthPoint=0;
+        GameCtrl.inst.OnFailed();
+        playerRB.velocity = Vector2.zero;
+        playerRB.isKinematic = true;
+        animator.SetBool("Die", true);
+         GameCtrl.inst.heal();
+        UImanagere.instance.UpdateHealthBar();
+    }
+    public void loseHealthPoint()
+    {
+        this.healthPoint -= 1;
+        JudgeGame();
+        GameCtrl.inst.heal();
+        UImanagere.instance.UpdateHealthBar();
+    }
+    public  void  JudgeGame()
+    {
+        
+        
+        if (this.healthPoint >0) 
+        {transform.position=startPosition;}
+        
+        else if(this.healthPoint==0)
+        {
+            GameCtrl.inst.OnFailed();
+            playerRB.velocity = Vector2.zero;
+            playerRB.isKinematic = true;
+            animator.SetBool("Die", true);
+            
+        }
+    }    
+
+
+    
 }

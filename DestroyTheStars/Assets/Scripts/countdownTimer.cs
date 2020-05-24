@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class countdownTimer : MonoBehaviour
 {
-    float currentTime = 0f;
-    float startingTime = 90f;
+    public float currentTime = 0f;
+    
+    public float startingTime = 9f;
+    
     [SerializeField] Text countdownText;
     // Start is called before the first frame update
     void Start()
@@ -27,8 +29,13 @@ public class countdownTimer : MonoBehaviour
         {
             countdownText.color = Color.red;
         }
- 
+        if(currentTime==0)
+         {
+            
+            PlayerCtrl.pc.healthPointZero();
+         }
     }
+  
     
     
       

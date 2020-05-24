@@ -28,7 +28,7 @@ public class GameCtrl : MonoBehaviour
         propCtrls = GameObject.FindObjectsOfType<PropCtrl>();
     }
 
-    public  void  JudgeSuccess()
+    public void JudgeSuccess()
     {
         score++;
         scoreLabel.text = score.ToString();
@@ -36,7 +36,7 @@ public class GameCtrl : MonoBehaviour
 
         LoadScene(nextScene);
     }
- 
+    
     public void heal()
     {
 
