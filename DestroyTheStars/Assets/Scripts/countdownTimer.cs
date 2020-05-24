@@ -31,14 +31,7 @@ public class countdownTimer : MonoBehaviour
         }
         if(currentTime==0)
          {
-            
-            PlayerCtrl.pc.healthPointZero();
+             PlayerCtrl.pc.healthPointZero();
          }
     }
-  
-    
-    
-      
-    
-
 }

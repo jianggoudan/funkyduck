@@ -16,8 +16,6 @@ public class muteManager : MonoBehaviour
 	{
 		isMuted = !isMuted;
 	    AudioListener.pause = isMuted;
-		
-
 	}
 
 }

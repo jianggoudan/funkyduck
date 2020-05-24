@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 690388989}
+      - m_Target: {fileID: 690388990}
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 690388989}
+      - m_Target: {fileID: 690388990}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1497,6 +1497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690388988}
   - component: {fileID: 690388989}
+  - component: {fileID: 690388990}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1538,6 +1539,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f38a1f61023fef4aa73a4026452af66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &690388990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690388987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f67a343240f8345b33e3233519b040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &996567143
@@ -2111,7 +2124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 690388989}
+      - m_Target: {fileID: 690388990}
         m_MethodName: Demo
         m_Mode: 1
         m_Arguments:
@@ -2686,7 +2699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 26.3}
+  m_AnchoredPosition: {x: 0, y: 82}
   m_SizeDelta: {x: 200, y: -2.5709229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759886063
@@ -2708,7 +2721,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dah dha dha dah its the d o gg
+  m_text: 'Creators:
+
+    Ted Yadav
+
+    zhongzhi jiang
+
+    Dingguang Lyu
+
+    Zicheng
+    Wang'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2743,7 +2765,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 32
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2754,7 +2776,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 35
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2778,12 +2800,12 @@ MonoBehaviour:
   m_margin: {x: -174.92004, y: 0, z: -163.4873, w: -140.57022}
   m_textInfo:
     textComponent: {fileID: 1759886063}
-    characterCount: 30
+    characterCount: 61
     spriteCount: 0
     spaceCount: 8
     wordCount: 9
     linkCount: 0
-    lineCount: 1
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2843,8 +2865,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 26.3}
-  m_SizeDelta: {x: 200, y: -2.5709229}
+  m_AnchoredPosition: {x: 0.21, y: 98.41}
+  m_SizeDelta: {x: 199.58661, y: -1.7443848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773807427
 MonoBehaviour:
@@ -2865,7 +2887,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dah dha dha dah its the d o gg
+  m_text: '-Use the arrow keys to navigate the player around the map.
+
+    -Collect
+    all the stars to clear a level.
+
+    -Finish the level in the 60 seconds.
+
+    -Collect
+    the strawberry to add a life.
+
+    -Beware of the spikes, as the kill you!!!!
+
+
+    Try
+    the DEMO to get a hang of things...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2894,8 +2930,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2932,15 +2968,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -174.92004, y: 0, z: -163.4873, w: -140.57022}
+  m_margin: {x: -174.92004, y: 0, z: -163.4873, w: -231.79256}
   m_textInfo:
     textComponent: {fileID: 1773807427}
-    characterCount: 30
+    characterCount: 259
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 9
+    spaceCount: 50
+    wordCount: 50
     linkCount: 0
-    lineCount: 1
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

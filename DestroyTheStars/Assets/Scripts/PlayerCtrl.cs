@@ -40,34 +40,14 @@ public class PlayerCtrl : MonoBehaviour
         {
             jumpPressed = true;
         }
-        //  currentTime -= 1 * Time.deltaTime;
-        
-        // if(currentTime <= 0)
-        // {
-        //     currentTime = 0;
-        // }
-        
-        //  if(currentTime==0)
-        //  {
-            
-        //     this.healthPoint -= 1;
-        //     Debug.Log(healthPoint);
-        //     playerRB.velocity = Vector2.zero;
-        //     playerRB.isKinematic = true;
-        //     animator.SetBool("Die", true);
-        //     GameCtrl.inst.heal();
-        //     UImanagere.instance.UpdateHealthBar();
-        //  }
-         if(healthPoint <= 0)
+        if(healthPoint <= 0)
         {
             healthPoint = 0;
-        }
-        
-        
+        }   
     }
      private void Awake()
     {
-        startPosition=transform.position;
+        startPosition=transform.position;//to set the player back to the spawn position if he dies
     }
     void FixedUpdate()
     {
@@ -76,9 +56,7 @@ public class PlayerCtrl : MonoBehaviour
         Jump();
         SwitchAnim();
     }
-    /// <summary>
-    /// 移动
-    /// </summary>
+
     void GroundMovement()
     {
         float h = Input.GetAxisRaw("Horizontal");//只有0 -1 1 三个数字
@@ -121,37 +99,6 @@ public class PlayerCtrl : MonoBehaviour
         animator.SetFloat("Move", playerRB.velocity.x);
         animator.SetBool("Jump", !isGround);
     }
-     
-        
-
-        
-    
-    // public void loseHealthPoint()
-    // {
-    //     this.healthPoint -= 1;
-    //     JudgeGame();
-    //     GameCtrl.inst.heal();
-    //     UImanagere.instance.UpdateHealthBar();
-    // }
-    // public  void  JudgeGame()
-    // {
-        
-        
-    //     if (this.healthPoint >0) 
-    //     {transform.position=startPosition;}
-        
-    //     else if(this.healthPoint==0)
-    //     {
-    //         GameCtrl.inst.OnFailed();
-    //         playerRB.velocity = Vector2.zero;
-    //         playerRB.isKinematic = true;
-    //         animator.SetBool("Die", true);
-    //     }
-    // }    
-
-
-
-    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name.Contains("Star"))
@@ -161,20 +108,7 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if (collision.name.Contains("Trap"))
         {
-            
-            //playerRB.velocity = Vector2.zero;
-            //playerRB.isKinematic = true;
-            //animator.SetBool("Die", true);
-            //transform.position=startPosition;
-            
-            
-            //SceneManager.LoadScene("Level0");
-            
             loseHealthPoint();
-            // this.healthPoint--;
-            // JudgeGame();
-            // GameCtrl.inst.heal();
-            // UImanagere.instance.UpdateHealthBar();
         }
         else if (collision.name.Contains("addHealth"))
         {
@@ -182,7 +116,6 @@ public class PlayerCtrl : MonoBehaviour
             Destroy(collision.gameObject);
             this.healthPoint  += 1;
             GameCtrl.inst.heal();
-           
             Debug.Log(this.healthPoint);
         }
         
@@ -195,19 +128,15 @@ public class PlayerCtrl : MonoBehaviour
         playerRB.isKinematic = true;
         animator.SetBool("Die", true);
          GameCtrl.inst.heal();
-        UImanagere.instance.UpdateHealthBar();
     }
     public void loseHealthPoint()
     {
         this.healthPoint -= 1;
         JudgeGame();
         GameCtrl.inst.heal();
-        UImanagere.instance.UpdateHealthBar();
     }
     public  void  JudgeGame()
     {
-        
-        
         if (this.healthPoint >0) 
         {transform.position=startPosition;}
         

@@ -304,7 +304,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 761082725}
+      - m_Target: {fileID: 761082726}
         m_MethodName: nextLevelandExit
         m_Mode: 1
         m_Arguments:
@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 761082724}
   - component: {fileID: 761082723}
   - component: {fileID: 761082725}
+  - component: {fileID: 761082726}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -521,6 +522,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0860c086458de8344b9db9576009635f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &761082726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761082721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a019c60ef9aef84aaf5bfcfa3bc800e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1237500702
@@ -1142,7 +1155,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 761082725}
+      - m_Target: {fileID: 761082726}
         m_MethodName: nextLevelandExit
         m_Mode: 1
         m_Arguments:
