@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Assets\LevelClear.cs" />
     <Compile Include="Assets\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\ButtonPause.cs" />
     <Compile Include="Assets\Scripts\FullScreen.cs" />
     <Compile Include="Assets\Scripts\GameCtrl.cs" />
     <Compile Include="Assets\Scripts\PlayerCtrl.cs" />
