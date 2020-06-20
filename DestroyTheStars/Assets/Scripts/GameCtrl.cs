@@ -15,7 +15,7 @@ public class GameCtrl : MonoBehaviour
     public string nextScene;
     private PropCtrl[] propCtrls;
     public Text healthLabel;
-    
+
     
     
 
