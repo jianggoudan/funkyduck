@@ -21,7 +21,7 @@ public class PlayerCtrl : MonoBehaviour
     public int healthPoint = 1;
     public Vector3 startPosition;
 
-
+    public static int score;
     //  public float currentTime = 5f;
     
     void Start()
@@ -105,6 +105,8 @@ public class PlayerCtrl : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameCtrl.inst.JudgeSuccess();
+           score++;
+            Debug.Log(score);
         }
         else if (collision.name.Contains("Trap"))
         {
@@ -118,6 +120,7 @@ public class PlayerCtrl : MonoBehaviour
             GameCtrl.inst.heal();
             Debug.Log(this.healthPoint);
         }
+        
         
     }
     public void healthPointZero()

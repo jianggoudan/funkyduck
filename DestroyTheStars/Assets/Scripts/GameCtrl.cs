@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+[System.Serializable]
 public class GameCtrl : MonoBehaviour
 {
     public static GameCtrl inst;
@@ -10,11 +11,11 @@ public class GameCtrl : MonoBehaviour
     public GameObject endUI;
     public Text scoreLabel;
     
-    private int score = 0;
+    public int score = 0;
     public string nextScene;
     private PropCtrl[] propCtrls;
     public Text healthLabel;
-    
+
     
     
 
