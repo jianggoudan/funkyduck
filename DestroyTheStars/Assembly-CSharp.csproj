@@ -36,6 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
+     <Compile Include="Assets\Bandits - Pixel Art\Demo\CharacterSelector_Bandit.cs" />
+     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+     <Compile Include="Assets\CharacterSelection.cs" />
      <Compile Include="Assets\LevelClear.cs" />
      <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\Scripts\GameCtrl.cs" />
@@ -44,6 +48,7 @@
      <Compile Include="Assets\Scripts\UImanagere.cs" />
      <Compile Include="Assets\Scripts\countdownTimer.cs" />
      <Compile Include="Assets\Scripts\movefloorCtrl.cs" />
+     <Compile Include="Assets\Selector_Script.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
