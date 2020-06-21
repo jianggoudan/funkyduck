@@ -5,11 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCtrl : MonoBehaviour
 {
+  
+    public Sprite avatar1,avatar2;
+    private SpriteRenderer mySprite;
+    private readonly string selectedCharacter = "SelectedCharacter";
     public Animator animator;
     public Rigidbody2D playerRB;
     public Transform bottom;
     public static PlayerCtrl pc;
-
+    
     public float moveSpeed = 1;
     public float jumpForce = 5;
     public LayerMask checkLayer;
@@ -24,8 +28,27 @@ public class PlayerCtrl : MonoBehaviour
     public static int score;
     //  public float currentTime = 5f;
     
+    void Awake()
+    {
+        mySprite = this.GetComponent<SpriteRenderer>();
+        startPosition = transform.position;//to set the player back to the spawn position if he dies
+    }
     void Start()
     {
+        int getCharacter;
+        getCharacter = PlayerPrefs.GetInt(selectedCharacter);
+        switch(getCharacter)
+        {
+            case 1:
+                mySprite.sprite = avatar1;
+                break;
+            case 2:
+                mySprite.sprite = avatar2;
+                break;
+            default:
+                mySprite.sprite = avatar1;
+                break;
+        } 
         pc = this;
         if (animator == null)
           {  animator = gameObject.GetComponent<Animator>();}
@@ -45,10 +68,7 @@ public class PlayerCtrl : MonoBehaviour
             healthPoint = 0;
         }   
     }
-     private void Awake()
-    {
-        startPosition=transform.position;//to set the player back to the spawn position if he dies
-    }
+    
     void FixedUpdate()
     {
         isGround = Physics2D.OverlapCircle(bottom.position, checkRadius, checkLayer);
@@ -106,7 +126,7 @@ public class PlayerCtrl : MonoBehaviour
             Destroy(collision.gameObject);
             GameCtrl.inst.JudgeSuccess();
            score++;
-            Debug.Log(score);
+          
         }
         else if (collision.name.Contains("Trap"))
         {

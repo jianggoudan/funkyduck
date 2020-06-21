@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
    
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level0");
+        SceneManager.LoadScene("difficulty");
     }
     public void Demo()
     {
