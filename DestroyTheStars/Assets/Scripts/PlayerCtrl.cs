@@ -1,4 +1,185 @@
-﻿using System.Collections;
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using UnityEngine.SceneManagement;
+
+//public class PlayerCtrl : MonoBehaviour
+//{
+
+//    public Sprite avatar1,avatar2;
+//    private SpriteRenderer mySprite;
+//    private readonly string selectedCharacter = "SelectedCharacter";
+//    public Animator animator;
+//    public Rigidbody2D playerRB;
+//    public Transform bottom;
+//    public static PlayerCtrl pc;
+
+//    public float moveSpeed = 1;
+//    public float jumpForce = 5;
+//    public LayerMask checkLayer;
+//    public float checkRadius = 0.1f;
+
+//    private bool isGround, isJump;
+//    private bool jumpPressed;
+//    private int jumpCount;
+//    public int healthPoint = 1;
+//    public Vector3 startPosition;
+
+//    public static int score;
+//    //  public float currentTime = 5f;
+
+//    void Awake()
+//    {
+//        mySprite = this.GetComponent<SpriteRenderer>();
+//        startPosition = transform.position;//to set the player back to the spawn position if he dies
+//    }
+//    void Start()
+//    {
+//        int getCharacter;
+//        getCharacter = PlayerPrefs.GetInt(selectedCharacter);
+//        switch(getCharacter)
+//        {
+//            case 1:
+//                mySprite.sprite = avatar1;
+//                break;
+//            case 2:
+//                mySprite.sprite = avatar2;
+//                break;
+//            default:
+//                mySprite.sprite = avatar1;
+//                break;
+//        } 
+//        pc = this;
+//        if (animator == null)
+//          {  animator = gameObject.GetComponent<Animator>();}
+//        if (playerRB == null)
+//           { playerRB = gameObject.GetComponent<Rigidbody2D>();}
+
+
+//    }
+//    private void Update()
+//    {
+//        if (Input.GetKeyDown(KeyCode.UpArrow) && jumpCount > 0)
+//        {
+//            jumpPressed = true;
+//        }
+//        if(healthPoint <= 0)
+//        {
+//            healthPoint = 0;
+//        }   
+//    }
+
+//    void FixedUpdate()
+//    {
+//        isGround = Physics2D.OverlapCircle(bottom.position, checkRadius, checkLayer);
+//        GroundMovement();
+//        Jump();
+//        SwitchAnim();
+//    }
+
+//    void GroundMovement()
+//    {
+//        float h = Input.GetAxisRaw("Horizontal");//只有0 -1 1 三个数字
+//        playerRB.velocity = new Vector2(h * moveSpeed, playerRB.velocity.y);
+
+//        if (h != 0)
+//            transform.localScale = new Vector3(h * 2, 2, 2);//控制翻转
+//    }
+//    /// <summary>
+//    /// 跳跃
+//    /// </summary>
+//    void Jump()
+//    {
+//        if (isGround)
+//        {
+//            jumpCount = 2;
+//            isJump = false;
+//        }
+
+//        if (jumpPressed && isGround)
+//        {
+//            isJump = true;
+//            playerRB.velocity = new Vector2(playerRB.velocity.x, jumpForce);
+//            jumpCount--;
+//            jumpPressed = false;//每0.02秒检测按键是否松开
+//        }
+//        else if (jumpPressed && jumpCount > 0 && !isGround)
+//        {
+//            playerRB.velocity = new Vector2(playerRB.velocity.x, jumpForce);
+//            jumpCount--;
+//            jumpPressed = false;
+//        }
+
+//    }
+//    /// <summary>
+//    /// 动画
+//    /// </summary>
+//    private void SwitchAnim()
+//    {
+//        animator.SetFloat("Move", playerRB.velocity.x);
+//        animator.SetBool("Jump", !isGround);
+//    }
+//    private void OnTriggerEnter2D(Collider2D collision)
+//    {
+//        if (collision.name.Contains("Star"))
+//        {
+//            Destroy(collision.gameObject);
+//            GameCtrl.inst.JudgeSuccess();
+//           score++;
+
+//        }
+//        else if (collision.name.Contains("Trap"))
+//        {
+//            loseHealthPoint();
+//        }
+//        else if (collision.name.Contains("addHealth"))
+//        {
+
+//            Destroy(collision.gameObject);
+//            this.healthPoint  += 1;
+//            GameCtrl.inst.heal();
+//            Debug.Log(this.healthPoint);
+//        }
+
+
+//    }
+//    public void healthPointZero()
+//    {
+//        this.healthPoint=0;
+//        GameCtrl.inst.OnFailed();
+//        playerRB.velocity = Vector2.zero;
+//        playerRB.isKinematic = true;
+//        animator.SetBool("Die", true);
+//         GameCtrl.inst.heal();
+//    }
+//    public void loseHealthPoint()
+//    {
+//        this.healthPoint -= 1;
+//        JudgeGame();
+//        GameCtrl.inst.heal();
+//    }
+//    public  void  JudgeGame()
+//    {
+//        if (this.healthPoint >0) 
+//        {transform.position=startPosition;}
+
+//        else if(this.healthPoint==0)
+//        {
+//            GameCtrl.inst.OnFailed();
+//            playerRB.velocity = Vector2.zero;
+//            playerRB.isKinematic = true;
+//            animator.SetBool("Die", true);
+
+//        }
+//    }    
+
+
+
+//}
+
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,17 +203,18 @@ public class PlayerCtrl : MonoBehaviour
     public Vector3 startPosition;
 
     public static int score;
-    //  public float currentTime = 5f;
-    
+    public static int bananaScore;
+   
+
     void Start()
     {
         pc = this;
         if (animator == null)
-          {  animator = gameObject.GetComponent<Animator>();}
+        { animator = gameObject.GetComponent<Animator>(); }
         if (playerRB == null)
-           { playerRB = gameObject.GetComponent<Rigidbody2D>();}
+        { playerRB = gameObject.GetComponent<Rigidbody2D>(); }
 
-            
+
     }
     private void Update()
     {
@@ -40,14 +222,14 @@ public class PlayerCtrl : MonoBehaviour
         {
             jumpPressed = true;
         }
-        if(healthPoint <= 0)
+        if (healthPoint <= 0)
         {
             healthPoint = 0;
-        }   
+        }
     }
-     private void Awake()
+    private void Awake()
     {
-        startPosition=transform.position;//to set the player back to the spawn position if he dies
+        startPosition = transform.position;//to set the player back to the spawn position if he dies
     }
     void FixedUpdate()
     {
@@ -105,7 +287,7 @@ public class PlayerCtrl : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameCtrl.inst.JudgeSuccess();
-           score++;
+            score++;
             Debug.Log(score);
         }
         else if (collision.name.Contains("Trap"))
@@ -114,23 +296,30 @@ public class PlayerCtrl : MonoBehaviour
         }
         else if (collision.name.Contains("addHealth"))
         {
-            
+
             Destroy(collision.gameObject);
-            this.healthPoint  += 1;
+            this.healthPoint += 1;
             GameCtrl.inst.heal();
-            Debug.Log(this.healthPoint);
+           
         }
-        
-        
+        else if(collision.name.Contains("banana"))
+        {
+            Destroy(collision.gameObject);
+           PlayerCtrl.bananaScore++;
+            Debug.Log(bananaScore);
+            GameCtrl.inst.addBanana();
+        }
+
+
     }
     public void healthPointZero()
     {
-        this.healthPoint=0;
+        this.healthPoint = 0;
         GameCtrl.inst.OnFailed();
         playerRB.velocity = Vector2.zero;
         playerRB.isKinematic = true;
         animator.SetBool("Die", true);
-         GameCtrl.inst.heal();
+        GameCtrl.inst.heal();
     }
     public void loseHealthPoint()
     {
@@ -138,21 +327,21 @@ public class PlayerCtrl : MonoBehaviour
         JudgeGame();
         GameCtrl.inst.heal();
     }
-    public  void  JudgeGame()
+    public void JudgeGame()
     {
-        if (this.healthPoint >0) 
-        {transform.position=startPosition;}
-        
-        else if(this.healthPoint==0)
+        if (this.healthPoint > 0)
+        { transform.position = startPosition; }
+
+        else if (this.healthPoint == 0)
         {
             GameCtrl.inst.OnFailed();
             playerRB.velocity = Vector2.zero;
             playerRB.isKinematic = true;
             animator.SetBool("Die", true);
-            
+
         }
-    }    
+    }
 
 
-    
+
 }

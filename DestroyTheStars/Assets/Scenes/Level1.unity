@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1351,6 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f67a343240f8345b33e3233519b040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 0}
 --- !u!1 &814976575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,8 +2254,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endUI: {fileID: 1381342892}
   scoreLabel: {fileID: 1971296118}
+  score: 0
   nextScene: Level2
   healthLabel: {fileID: 0}
+  bananaLabel: {fileID: 0}
 --- !u!1 &1714835931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,10 +3304,10 @@ RectTransform:
   m_Father: {fileID: 677468536}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: 486.3001}
-  m_SizeDelta: {x: 278.17838, y: 103.7233}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -51.861633}
+  m_SizeDelta: {x: 278.17838, y: 103.72327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105722073
 MonoBehaviour:
