@@ -12,7 +12,7 @@ public class movefloorCtrl : MonoBehaviour
     public float changeTimer;
 
     // Start is called before the first frame update
-    void Start()
+    void Start()//initialize all move things
     {
         rbody = GetComponent<Rigidbody2D>();
         moveDirec = isVertical ? Vector2.up : Vector2.right;
@@ -20,7 +20,7 @@ public class movefloorCtrl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//change position
     {
         Vector2 position = rbody.position;
         changeTimer -= Time.deltaTime;

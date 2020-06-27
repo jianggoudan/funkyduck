@@ -12,7 +12,7 @@ public class muteManager : MonoBehaviour
 		isMuted = false;
     }
 
-    public void MutePressed()
+    public void MutePressed()//click mute button, if it is mute, display sound, or mute
 	{
 		isMuted = !isMuted;
 	    AudioListener.pause = isMuted;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+// save progress, but it does not work.
 public class saveProgress : MonoBehaviour
 {
     // Start is called before the first frame update

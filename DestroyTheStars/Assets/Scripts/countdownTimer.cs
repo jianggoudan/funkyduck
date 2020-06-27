@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class countdownTimer : MonoBehaviour
 {
     public  static float currentTime = 0f;
-    public float tempTime;
+  
     public static float startingTime = 60f;
     
     [SerializeField] Text countdownText;
@@ -17,6 +17,7 @@ public class countdownTimer : MonoBehaviour
     }
 
     // Update is called once per frame
+    //decrease time 60 seconds to 0;
     void Update()
     {
         currentTime -= 1 * Time.deltaTime;

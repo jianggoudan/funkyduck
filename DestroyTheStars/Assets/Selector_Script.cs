@@ -19,7 +19,7 @@ public class Selector_script : MonoBehaviour
         avatar1Render = avatar1.GetComponent<SpriteRenderer>();
         avatar2Render = avatar2.GetComponent<SpriteRenderer>();
     }
-    public void NextCharacter()
+    public void NextCharacter()//next button. change next character
     {
         switch(CharacterInt)
         {
@@ -45,7 +45,7 @@ public class Selector_script : MonoBehaviour
                 break;
         }
     }
-    public void PreviousCharacter()
+    public void PreviousCharacter()//previous button. go back to the previous character
     {
         switch (CharacterInt)
         {
@@ -71,7 +71,7 @@ public class Selector_script : MonoBehaviour
                 break;
         }
     }
-    private void ResetInt()
+    private void ResetInt()//reset index
     {
         if(CharacterInt>=2)
         {
@@ -82,7 +82,7 @@ public class Selector_script : MonoBehaviour
             CharacterInt = 2;
         }
     }
-    public void ChangeScene()
+    public void ChangeScene()//comfirm button, go to level 0
     {
         SceneManager.LoadScene("level0");
     }
